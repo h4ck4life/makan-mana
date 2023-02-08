@@ -7,8 +7,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
-  const [restaurants, setRestaurants] = useState([]);
+  const [restaurants, setRestaurants] = useState<RestaurantData[]>([]);
   let dataFetchedRef = false;
+
+  interface RestaurantData {
+    id: number;
+    name: string;
+  }
 
   const randomize = () => {
     if (isLoading) return;
@@ -44,7 +49,7 @@ export default function Home() {
   useEffect(() => {
     if (dataFetchedRef) return;
     dataFetchedRef = true;
-    const restaurants = require("../data/restaurant.json");
+    const restaurants: RestaurantData[] = require("../data/restaurant.json");
     setRestaurants(restaurants);
   }, []);
 
@@ -61,7 +66,7 @@ export default function Home() {
         onClick={randomize}
       >
         <div className="flex flex-col flex-grow h-screen mt-24">
-          {restaurants.map((data) => (
+          {restaurants.map((data: RestaurantData) => (
             <div
               className="restaurant text-center opacity-10 transition-opacity mb-3"
               key={data.id}
