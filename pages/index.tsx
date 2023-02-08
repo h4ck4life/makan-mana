@@ -1,19 +1,20 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
+  const [restaurants, setRestaurants] = useState([]);
+  let dataFetchedRef = false;
 
   const randomize = () => {
-    if(isLoading) return;
+    if (isLoading) return;
     setIsLoading(true);
     let restaurant = document.getElementsByClassName("restaurant");
     const random = Math.floor(Math.random() * restaurant.length);
-    console.log(random);
 
     for (let i = 0; i < restaurant.length; i++) {
       restaurant[i].classList.add("opacity-10");
@@ -25,8 +26,7 @@ export default function Home() {
           for (let i = 0; i < restaurant.length; i++) {
             restaurant[i].classList.add("opacity-10");
           }
-          let randomRestaurant = restaurant[random];
-          randomRestaurant.classList.remove("opacity-10");
+          restaurant[random].classList.remove("opacity-10");
           setIsLoading(false);
         }, 3600);
       } else {
@@ -41,6 +41,13 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    if (dataFetchedRef) return;
+    dataFetchedRef = true;
+    const restaurants = require("../data/restaurant.json");
+    setRestaurants(restaurants);
+  }, []);
+
   return (
     <>
       <Head>
@@ -53,19 +60,15 @@ export default function Home() {
         className="container mx-auto p-2 inter.className"
         onClick={randomize}
       >
-        <div className="flex flex-col justify-center flex-grow h-screen">
-          <div className="restaurant text-center opacity-10 transition-opacity">
-            Sg Pelek
-          </div>
-          <div className="restaurant text-center opacity-10 transition-opacity">
-            Mat Ayam Kampung
-          </div>
-          <div className="restaurant text-center opacity-10 transition-opacity">
-            Banana Leaf
-          </div>
-          <div className="restaurant text-center opacity-10 transition-opacity">
-            3BG
-          </div>
+        <div className="flex flex-col flex-grow h-screen mt-24">
+          {restaurants.map((data) => (
+            <div
+              className="restaurant text-center opacity-10 transition-opacity mb-3"
+              key={data.id}
+            >
+              {data.name}
+            </div>
+          ))}
         </div>
       </div>
     </>
