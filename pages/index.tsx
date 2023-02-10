@@ -50,7 +50,7 @@ export default function Home() {
         onClick={randomize}
       >
         <div className="flex flex-col h-screen items-center justify-center">
-          <div className="restaurant opacity-70 text-center transition-opacity mb-3">
+          <div className="opacity-70 inline-flex text-center transition-opacity mb-3">
             {isLoading ? (
               <PropagateLoader
                 color="#fff"
