@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { PacmanLoader, PuffLoader, PropagateLoader } from "react-spinners";
 import { Inter } from "@next/font/google";
 import { useEffect, useRef, useState } from "react";
 
@@ -8,6 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [restaurants, setRestaurants] = useState<RestaurantData[]>([]);
+  const [randomRestaurant, setRandomRestaurant] = useState("Ready?");
   let dataFetchedRef = false;
 
   interface RestaurantData {
@@ -18,32 +20,12 @@ export default function Home() {
   const randomize = () => {
     if (isLoading) return;
     setIsLoading(true);
-    let restaurant = document.getElementsByClassName("restaurant");
-    const random = Math.floor(Math.random() * restaurant.length);
-
-    for (let i = 0; i < restaurant.length; i++) {
-      restaurant[i].classList.add("opacity-10");
+    const random = Math.floor(Math.random() * restaurants.length);
+    setTimeout(() => {
+      setRandomRestaurant(restaurants[random].name);
+      setIsLoading(false);
     }
-
-    for (let k = 0; k < 13; k++) {
-      if (k === 12) {
-        setTimeout(() => {
-          for (let i = 0; i < restaurant.length; i++) {
-            restaurant[i].classList.add("opacity-10");
-          }
-          restaurant[random].classList.remove("opacity-10");
-          setIsLoading(false);
-        }, 3600);
-      } else {
-        setTimeout(() => {
-          for (let i = 0; i < restaurant.length; i++) {
-            setTimeout(() => {
-              restaurant[i].classList.toggle("opacity-10");
-            }, i * 20);
-          }
-        }, k * 300);
-      }
-    }
+    , 1200);
   };
 
   useEffect(() => {
@@ -66,14 +48,17 @@ export default function Home() {
         onClick={randomize}
       >
         <div className="flex flex-col flex-grow h-screen mt-24">
-          {restaurants.map((data: RestaurantData) => (
-            <div
-              className="restaurant text-center opacity-10 transition-opacity mb-3"
-              key={data.id}
-            >
-              {data.name}
-            </div>
-          ))}
+          <div className="restaurant text-center opacity-70 transition-opacity mb-3">
+            {isLoading ? (
+              <PropagateLoader
+                color="#fff"
+                cssOverride={{ display: "inline-flex", opacity: 0.5 }}
+                speedMultiplier={2}
+              />
+            ) : (
+              randomRestaurant
+            )}
+          </div>
         </div>
       </div>
     </>
