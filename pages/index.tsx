@@ -44,6 +44,19 @@ export default function Home() {
     setRestaurants(restaurants);
   }, []);
 
+  useEffect(() => {
+    if (restaurants.length > 0) {
+      restaurants.forEach((restaurant) => {
+        // add to head
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.href = restaurant.image;
+        link.as = "image";
+        document.head.appendChild(link);
+      });
+    }
+  }, [restaurants]);
+
   const setStyles = (imageUrl: string) => {
     return {
       backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${imageUrl})`,
