@@ -64,11 +64,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="container mx-auto p-2 z-20" onClick={randomize}>
-        <div
-          className="bg-cover bg-center h-screen w-screen bg-no-repeat z-10 absolute top-0 left-0"
-          style={setStyles(randomRestaurantImage)}
-        ></div>
+      <div
+        className="container mx-auto p-2 z-20 bg-cover bg-center bg-no-repeat"
+        onClick={randomize}
+        style={setStyles(randomRestaurantImage)}
+      >
         <div className="flex flex-col h-screen items-center justify-center">
           <div className="inline-flex text-center transition-opacity">
             {isLoading ? (

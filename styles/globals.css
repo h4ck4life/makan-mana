@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #f4d03f;
+  background-color: #000;
   background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
   font-family: "Kalam", cursive;
 }
