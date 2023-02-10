@@ -64,6 +64,7 @@ export default function Home() {
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       opacity: 0.3,
+      TransitionEvent: "opacity 0.5s ease-in-out",
     };
   };
 
