@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
-import { PacmanLoader, PuffLoader, PropagateLoader } from "react-spinners";
-import { useEffect, useRef, useState } from "react";
+import { PropagateLoader } from "react-spinners";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
