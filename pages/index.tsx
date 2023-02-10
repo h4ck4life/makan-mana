@@ -65,8 +65,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container mx-auto p-2 z-20" onClick={randomize}>
+        <div
+          className="bg-cover bg-center h-screen w-screen bg-no-repeat z-10 absolute top-0 left-0"
+          style={setStyles(randomRestaurantImage)}
+        ></div>
         <div className="flex flex-col h-screen items-center justify-center">
-          <div className="inline-flex text-center transition-opacity mb-3">
+          <div className="inline-flex text-center transition-opacity">
             {isLoading ? (
               <PropagateLoader
                 color="#fff"
@@ -83,10 +87,6 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div
-          className="bg-cover bg-center h-screen w-screen bg-no-repeat z-10 absolute"
-          style={setStyles(randomRestaurantImage)}
-        ></div>
         <footer className="fixed bottom-0 w-full text-center p-4">
           <span className="text-xs opacity-20 font-thin">
             MakanMana by @h4ck4life
