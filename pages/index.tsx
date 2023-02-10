@@ -86,7 +86,7 @@ export default function Home() {
           </div>
         </div>
         <footer className="fixed bottom-0 w-full text-center p-4">
-          <span className="text-xs opacity-20 font-thin">
+          <span className="text-xs opacity-70 font-thin">
             MakanMana by @h4ck4life
           </span>
         </footer>

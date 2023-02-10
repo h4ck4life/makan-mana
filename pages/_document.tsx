@@ -16,7 +16,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="text-white text-5xl">
+      <body className="text-white text-5xl font-bold">
         <Main />
         <NextScript />
       </body>
