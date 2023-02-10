@@ -44,11 +44,11 @@ export default function Home() {
 
   const setStyles = (imageUrl: string) => {
     return {
-      backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${imageUrl})`,
+      backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${imageUrl + "?" + new Date().getTime()})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
-      opacity: 0.2,
+      opacity: 0.7,
     };
   };
 
