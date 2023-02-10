@@ -44,8 +44,8 @@ export default function Home() {
         className="container mx-auto p-2"
         onClick={randomize}
       >
-        <div className="flex flex-col flex-grow h-screen mt-24">
-          <div className="restaurant text-center opacity-70 transition-opacity mb-3">
+        <div className="flex flex-col h-screen items-center justify-center">
+          <div className="restaurant opacity-70 transition-opacity mb-3">
             {isLoading ? (
               <PropagateLoader
                 color="#fff"
