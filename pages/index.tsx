@@ -21,6 +21,7 @@ export default function Home() {
   const randomize = () => {
     if (isLoading) return;
     setIsLoading(true);
+    setRandomRestaurantImage("");
     const random = Math.floor(Math.random() * restaurants.length);
     // if random if the same as the previous one, re-randomize
     if (restaurants[random].name === randomRestaurant) {
