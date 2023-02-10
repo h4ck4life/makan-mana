@@ -8,7 +8,8 @@ export default function Home() {
   const [restaurants, setRestaurants] = useState<RestaurantData[]>([]);
   const [randomRestaurant, setRandomRestaurant] = useState("Ready?");
   const [randomRestaurantImage, setRandomRestaurantImage] = useState("");
-  const [randomRestaurantDescription, setRandomRestaurantDescription] = useState("");
+  const [randomRestaurantDescription, setRandomRestaurantDescription] =
+    useState("");
   let dataFetchedRef = false;
 
   interface RestaurantData {
@@ -45,7 +46,9 @@ export default function Home() {
 
   const setStyles = (imageUrl: string) => {
     return {
-      backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${imageUrl + "?" + new Date().getTime()})`,
+      backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${
+        imageUrl + "?" + new Date().getTime()
+      })`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
@@ -61,11 +64,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-cover bg-center bg-no-repeat" style={setStyles(randomRestaurantImage)}></div>
-      <div
-        className="container mx-auto p-2"
-        onClick={randomize}  
-      >
+      <div className="container mx-auto p-2 z-20" onClick={randomize}>
         <div className="flex flex-col h-screen items-center justify-center">
           <div className="inline-flex text-center transition-opacity mb-3">
             {isLoading ? (
@@ -77,11 +76,17 @@ export default function Home() {
             ) : (
               <div>
                 <span className="drop-shadow-md block">{randomRestaurant}</span>
-                <span className="text-sm opacity-60">{randomRestaurantDescription || "Tap"}</span>
+                <span className="text-sm opacity-60">
+                  {randomRestaurantDescription || "Tap"}
+                </span>
               </div>
             )}
           </div>
         </div>
+        <div
+          className="bg-cover bg-center h-screen w-screen bg-no-repeat z-10 absolute"
+          style={setStyles(randomRestaurantImage)}
+        ></div>
         <footer className="fixed bottom-0 w-full text-center p-4">
           <span className="text-xs opacity-20 font-thin">
             MakanMana by @h4ck4life
