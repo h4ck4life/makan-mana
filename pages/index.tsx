@@ -49,7 +49,7 @@ export default function Home() {
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
-      opacity: 0.7,
+      opacity: 0.5,
     };
   };
 
@@ -61,10 +61,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="bg-cover bg-center bg-no-repeat" style={setStyles(randomRestaurantImage)}></div>
       <div
-        className="container mx-auto p-2 bg-cover bg-center bg-no-repeat"
-        onClick={randomize}
-        style={setStyles(randomRestaurantImage)}
+        className="container mx-auto p-2"
+        onClick={randomize}  
       >
         <div className="flex flex-col h-screen items-center justify-center">
           <div className="inline-flex text-center transition-opacity mb-3">
