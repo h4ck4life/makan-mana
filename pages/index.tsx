@@ -18,6 +18,11 @@ export default function Home() {
     if (isLoading) return;
     setIsLoading(true);
     const random = Math.floor(Math.random() * restaurants.length);
+    // if random if the same as the previous one, re-randomize
+    if (restaurants[random].name === randomRestaurant) {
+      randomize();
+      return;
+    }
     setTimeout(() => {
       setRandomRestaurant(restaurants[random].name);
       setIsLoading(false);
@@ -45,7 +50,7 @@ export default function Home() {
         onClick={randomize}
       >
         <div className="flex flex-col h-screen items-center justify-center">
-          <div className="restaurant opacity-70 transition-opacity mb-3">
+          <div className="restaurant opacity-70 text-center transition-opacity mb-3">
             {isLoading ? (
               <PropagateLoader
                 color="#fff"
