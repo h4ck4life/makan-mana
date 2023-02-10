@@ -77,33 +77,36 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        className="container mx-auto p-2 z-20 bg-cover bg-center bg-no-repeat"
-        onClick={randomize}
+        className="bg-cover bg-center bg-no-repeat"
         style={setStyles(randomRestaurantImage)}
       >
-        <div className="flex flex-col h-screen items-center justify-center">
-          <div className="inline-flex text-center transition-opacity">
-            {isLoading ? (
-              <PropagateLoader
-                color="#fff"
-                cssOverride={{ display: "inline-flex", opacity: 0.5 }}
-                speedMultiplier={2}
-              />
-            ) : (
-              <div>
-                <span className="drop-shadow-lg block">{randomRestaurant}</span>
-                <span className="text-sm opacity-60">
-                  {randomRestaurantDescription || "Tap"}
-                </span>
-              </div>
-            )}
+        <div className="container mx-auto p-2 z-20 " onClick={randomize}>
+          <div className="flex flex-col h-screen items-center justify-center">
+            <div className="inline-flex text-center transition-opacity">
+              {isLoading ? (
+                <PropagateLoader
+                  color="#fff"
+                  cssOverride={{ display: "inline-flex", opacity: 0.5 }}
+                  speedMultiplier={2}
+                />
+              ) : (
+                <div>
+                  <span className="drop-shadow-lg block">
+                    {randomRestaurant}
+                  </span>
+                  <span className="text-sm opacity-60">
+                    {randomRestaurantDescription || "Tap"}
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
+          <footer className="fixed bottom-0 w-full text-center p-4">
+            <span className="text-xs opacity-70 font-thin">
+              MakanMana by @h4ck4life
+            </span>
+          </footer>
         </div>
-        <footer className="fixed bottom-0 w-full text-center p-4">
-          <span className="text-xs opacity-70 font-thin">
-            MakanMana by @h4ck4life
-          </span>
-        </footer>
       </div>
     </>
   );
