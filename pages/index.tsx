@@ -1,10 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { PacmanLoader, PuffLoader, PropagateLoader } from "react-spinners";
-import { Inter } from "@next/font/google";
 import { useEffect, useRef, useState } from "react";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,7 +41,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        className="container mx-auto p-2 inter.className"
+        className="container mx-auto p-2"
         onClick={randomize}
       >
         <div className="flex flex-col flex-grow h-screen mt-24">
