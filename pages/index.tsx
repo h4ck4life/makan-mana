@@ -1,6 +1,7 @@
 import Head from "next/head";
-import { PropagateLoader } from "react-spinners";
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import { PacmanLoader, PuffLoader, PropagateLoader } from "react-spinners";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -63,7 +64,6 @@ export default function Home() {
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       opacity: 0.3,
-      TransitionEvent: "opacity 0.5s ease-in-out",
     };
   };
 
@@ -76,7 +76,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        className="bg-cover bg-center bg-no-repeat"
+        className="bg-cover bg-center bg-no-repeat opacity-100 transition-opacity"
         style={setStyles(randomRestaurantImage)}
       >
         <div className="container mx-auto p-2 z-20 " onClick={randomize}>
