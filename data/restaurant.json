@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Mat Ayam Kampung",
     "image": "https://i.imgur.com/Mctjrxu.jpeg",
-    "description": ""
+    "description": "Tak boleh lepak lama"
   },
   {
     "id": 2,
@@ -39,6 +39,12 @@
     "id": 7,
     "name": "Shamna Restaurant",
     "image": "https://lh3.googleusercontent.com/p/AF1QipPAW-wFm_mXGKLCt-O6CUpGGQJcm0HwEyt8HAua=s1360-w1360-h1020",
+    "description": ""
+  },
+  {
+    "id": 8,
+    "name": "Precinct 8 Food Court",
+    "image": "https://lh3.googleusercontent.com/p/AF1QipOnDEUYLjoA2lXjuoZB33GWek4Z762T1KHEtppU=s1360-w1360-h1020",
     "description": ""
   }
 ]
